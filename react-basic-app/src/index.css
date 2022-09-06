@@ -1,0 +1,96 @@
+/* web page */
+body, #root {
+  height: 100vh;
+  margin: 0;
+}
+
+/* home page container */
+.grid-container{
+  display: grid;
+  grid-template-areas: 
+  "header"
+  "main"
+  "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 3rem 1fr 3rem;
+  height: 100%;
+}
+
+/* remove underline of the text in a */
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  color: #ff8000;
+}
+
+/* header container */
+.navbar{
+  grid-area: header;
+  overflow: hidden;
+  background-color: orange;
+  font-family: Arial, Helvetica, sans-serif;
+  display: grid;
+  grid-template-areas: 
+  "header header2 header3";
+  color: white;
+  align-items: center;
+  justify-content: space-between;
+  padding: .1rem;
+}
+
+/* user combo list */
+.dropdown-list{
+  grid-area: header3;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  margin-right: .5rem;
+  max-width: 10rem;
+}
+
+/* content of user combo list */
+.dropdown-content{
+  display: none;
+  position: inherit;
+}
+
+/* filter */
+.filter{
+  display: flex;
+  justify-content: space-between;
+  padding: .5rem;
+  margin-left: 2rem;
+  margin-right: 1rem;
+}
+
+hr{
+  margin-left: .5rem;
+  margin-right: .5rem;
+  background-color: grey;
+}
+
+/* products */
+.products{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: .5rem;
+}
+.products img{
+  display: flex;
+  margin: .5rem;
+  max-width: 35rem;
+  max-height: 35rem;
+}
+
+/* footer */
+footer{
+  grid-area: footer;
+  background-color: orange;
+  display: flex;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}

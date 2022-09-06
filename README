@@ -1,0 +1,23 @@
+BestSell Shopping Website
+1.Build the home page:
+    a.header and footer:
+        i.header - BestSell title on the left, suitable padding left;
+                   cart icon and login link on the right, icon on the left of the login, set up appropriate gap between them;
+                   appropriate background for the header.
+        ii. footer - text "All right is reserved" on the center of the footer,
+                     appropriate background for the footer.
+    b.number of products, filter, and dividing line
+        i.number of products - count the number of products then present on the
+                               left. 
+        ii.filter - two drop-down lists used for filtering products are under
+                   the header but on the top of dividing line.    
+        iii.dividing line - add <hr> under the filter
+    c.product
+        i. present a list of product on the body with appropriate gap between 
+           each product;
+           put product name and price at the bottom of each product
+
+
+
+
+

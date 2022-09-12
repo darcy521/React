@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 
-export default class Filter extends Component {
-  render() {
+export default function Filter(){
     return (
       <div className='filter'>
         <div className='filter-result'>{} Products</div>
@@ -24,4 +23,4 @@ export default class Filter extends Component {
       </div>
     )
   }
-}
+

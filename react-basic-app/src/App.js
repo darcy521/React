@@ -1,50 +1,83 @@
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import Filter from './components/Filter';
-import Products from './components/Products';
+import Cart from './hooks/Cart';
+import Filter from './hooks/Filter';
+import Products from './hooks/Products';
 
-function App() {
-  function formatName(username){
-    return username.toUpperCase();
+export default function App() {
+  
+  const [username, setUsername] = useState("");
+  // use isLoggedIn to check if the user has signed in
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [cartItems, setCartItems] = useState(1);
+
+  // set the value of click to load Cart function
+  const [click, setClick] = useState(false);
+  
+  // set click state to true to open the cartModal
+  const openCart = () => {
+    setClick(true);
+    console.log("open cart");
   }
 
-  function getGreeting(username){
-    if (username) {
-      return <h1>Hello {formatName(username)}</h1>;
-    } else {
-      return <h1>Hello Stranger</h1>;
-    }
+  const login = () => {
+    console.log("check login state: ");
   }
-  const name = "Darcy";
-  const element = (
-    <div className='grid-container'>
+
+  function formatName (username) {
+    setUsername(username);
+  }
+  
+  // refresh click statement by setting click to undefined
+  // const handleCartClicked = (childToParent) => {
+  //     setClick(childToParent);
+  //     console.log("click: "+ click);
+  //     console.log("childData: "+ childToParent);
+  // }
+  
+
+  useEffect(() => {
+
+  }, [])
+
+    return (
+      <div className='grid-container'>
       <header>
-        <div className='navbar'>
+        <div className='navbar'> 
           <a href='/'>MiniShopping</a>
-          <img src='cart-icon.png' alt=' '
-                width={"45px"}></img>
+          <div className='cart-icon-items'>
+          {cartItems <= 0 ? <></>: <div className='cart-items'>{cartItems}</div>}
+          <button className='cart-icon'
+                  onClick={openCart}>
+          <img src='cart-icon.png' alt=' ' 
+                width={"45px"} 
+                ></img> 
+          </button>
+          </div>
           <div className='dropdown-list'>
-            <button width={"45px"}>username</button>
+            {isLoggedIn? <button width={"45px"}>username</button> : 
+                          <a href='/login'>login</a>}
+            
             <div className='dropdown-content'>
               <a href='/'>Sell Product</a>
-              <a href='/'>history</a>
+              <a href='/history'>history</a>
             </div>
           </div>
-        </div>
+        </div> 
       </header>
       <main>
-      <h3>Hello {formatName(name)}!</h3>
-      <p>Good to see you</p>
       <Filter />
-      <hr></hr>
+      <hr></hr> 
       <Products />
+      {click && (<Cart 
+         click = {click}
+         handleCartClicked = {a => setClick(a)}
+        />)}
       </main>
       <footer>All right is reserved.</footer>
     </div>
-  );
+    );
+  }
 
-  return (
-    element
-  );
-}
 
-export default App;

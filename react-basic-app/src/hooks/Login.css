@@ -1,0 +1,32 @@
+body.login, body.signUp{
+    background-image: url("../../public/images/loginBackground.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.login-container, .signUp-container{
+    display: block;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    background-color: aliceblue;
+}
+
+.login-container ul, .signUp-container ul{
+    list-style-type: none;
+    border: 2px solid lightgray;
+    border-radius: 4px;
+    padding: 1rem;
+    margin: 2px;
+}
+
+.source {
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+}

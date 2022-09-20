@@ -3,6 +3,8 @@ import './App.css';
 import Cart from './hooks/Cart';
 import Filter from './hooks/Filter';
 import Products from './hooks/Products';
+import store from './hooks/store';
+import { Provider } from 'react-redux';
 
 export default function App() {
   
@@ -42,6 +44,7 @@ export default function App() {
   }, [])
 
     return (
+      <Provider store = {store}>
       <div className='grid-container'>
       <header>
         <div className='navbar'> 
@@ -77,6 +80,7 @@ export default function App() {
       </main>
       <footer>All right is reserved.</footer>
     </div>
+    </Provider>
     );
   }
 

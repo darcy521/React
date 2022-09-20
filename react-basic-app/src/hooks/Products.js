@@ -3,8 +3,10 @@ import axios from 'axios';
 import '../config/config.js';
 import Modal from 'react-modal';
 import { Fade, Zoom } from "react-reveal";
+import { connect } from "react-redux";
+import {fetchProducts} from '../redux/actions/productActions';
 
-export default function Products() {
+function Products() {
   const [products, setProducts] = useState([]);
   var [modal, setModal] = useState(null);
   console.log("modal: " + modal);
@@ -13,9 +15,9 @@ export default function Products() {
     axios.get(global.AppConfig.serverIp + "/pub/product/list_all_product")
       .then((response) => {
         console.log("List_All_Products_Response", response.data);
-        let sortedProducts = response.data.data.slice().sort((a,b) => (
-          ((a.id < b.id)? 1 : -1)
-        ))
+        // let sortedProducts = response.data.data.slice().sort((a,b) => (
+        //   ((a.id < b.id)? 1 : -1)
+        // ))
         setProducts(response.data.data);
       }) 
       .catch(function (error){
@@ -32,7 +34,8 @@ export default function Products() {
   const listProducts = () => {
     return <> <Fade cascade>
     <ul className='products'>
-      {products.map(product => (
+      { !products ? <div>Loading...</div> :
+      products.map(product => (
         <li key={product.id}>
           <a href={"#" + product.id} onClick={() => openProductDetails(product)} >
             <img className="products-img" src={product.img} alt={product.name}/>
@@ -70,4 +73,7 @@ export default function Products() {
     </div>
   )
 }
+export default connect((state)=>({ products:state.products.items }), {
+  fetchProducts,
+})(Products);
 

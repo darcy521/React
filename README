@@ -22,6 +22,18 @@ Only call Hooks from React function components. Don't call Hooks from regular Ja
            put product name and price at the bottom of each product
 
 
-
-
+Add redux:
+    1. what is redux(diagram)
+    2. npm install redux
+    3. create types
+    4. types.js
+    5. define FETCH_PRODUCTS
+    6. actions/productActions.js
+    7. declare fetchProducts
+    8. create reducers
+    9. reducers/productReducers.js
+    10. define case FETCH_PRODUCTS
+    11. create store.js
+    
+    
 
